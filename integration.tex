@@ -72,11 +72,127 @@ Politechnika Warszawska
         \titlepage
     \end{frame}
 
-	\begin{frame}{Agenda}
-		\tableofcontents
-	\end{frame}
+	%\begin{frame}{Agenda}
+	%	\tableofcontents
+	%\end{frame}
 
 \section{Wstęp}
+
+	\begin{frame}
+		\frametitle{Przypomnienie - Własności całek}
+
+	    Niech $f, g: \mathbb{R} \rightarrow \mathbb{R}$ będą funkcjami całkowalnymi
+	    w sensie Riemanna, niech F będzie funkcją pierwotną $f$ ($F' = f$), 
+	    ponadto niech $c \in \mathbb{R}$ 
+	    wtedy zachodzą następujące równości:
+	    
+	    \[ \int_a^b f = F(b) - F(a) \]
+	    \[ \int_a^b f = - \int_b^a f \]
+	    
+	    \[ \int_a^b f + g  = \int_a^b f + \int_a^b g \]
+	    \[ \int_a^b cf = c \int_a^b f \]
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Przypomnienie - Własności całek}
+
+		\begin{figure}
+	    	\includegraphics[scale=0.8]{./img/integration_idea_2}
+	    \end{figure}
+	    
+	    Okazuje się że całka oznaczona z funkcji $f$ na przedziale
+	    $[a, b]$ odpowiada polu figury ograniczonej przez proste
+	    $x = a$ oraz $x = b$, wykres funkcji $f$ oraz oś X.
+	    Przy czym pole figury leżące pod osią X uznajemy za "ujemne" 
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Idea algorytmów całkowania numerycznego}
+		\begin{itemize}
+			\item
+			 	Zamiast obliczać wartość całki z funkcji $\int_a^b f$ obliczmy pole 
+			 	figury którą tworzy wykres funkcji $f$ z osią X
+			 \item
+			 	Pole to obliczymy dzieląc przedział całkowania $[a, b]$ na
+			 	wiele wąskich "pasków"
+			 \item
+			 	Oszacujemy pole każdego z tych "pasków" korzystając z 
+			 	wartości funkcji $f$ w kilku (niekoniecznie krańcowych) wybranych
+			 	punktach - dalej będziemy te punkty nazywać węzłami
+			 \item
+			 	Przekształcenia które na podstawie wartości funkcji w węzłach
+			 	pozwalają obliczyć pole wycinka nazywamy \textbf{kwadraturami prostymi}
+			 	lub \textbf{formułami prostymi}
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Idea algorytmów całkowania numerycznego}
+		\begin{figure}
+			\includegraphics[scale=0.3,trim=1cm 1cm 1cm 1cm,clip]{./img/integration_idea}
+			\caption{Wykres funkcji $f(x) = x + x\cos(x)$}
+		\end{figure}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Oznaczenia, Formuły złożone otwarte i zamknięte}
+		\begin{figure}
+			\includegraphics[scale=0.2]{./img/points}
+		\end{figure}
+		\only<1> {
+			\begin{itemize}
+				\item
+					Formuły proste możemy dodawać do siebie, otrzymamy w ten 
+					sposób formuły złożone pozwalające obliczyć wartość całki na
+					całym przedziale $[a, b]$
+			\end{itemize}
+		}
+		\only<2> {
+			Przyjmijmy następujące oznaczenia:
+			\begin{itemize}
+				\item $f$ - funkcja podcałkowa
+				\item $[x_0, x_{N+1}]$ - przedział całkowania
+				\item $ x_i = x_0 + ih, \ i = 0, 1, \ldots, N+1 $
+				\item $ f_i = f(x_i) $
+			\end{itemize}
+		}
+	\end{frame}
+	
+\section{Kwadratury proste}
+	
+	\begin{frame}
+		\frametitle{Kwadratury Newtona-Cotes'a - Kwadratura trapezów}
+		\[ \int_{x0}^{x1} f = \frac{h}{2}(f_0 + f_1) + O(h^3 f'') \]
+		\begin{figure}
+			\includegraphics[scale=0.3]{./img/q_trap}
+		\end{figure} 
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Kwadratury Newtona-Cotes'a - Kwadratura Simpsona}
+		\[ \int_{x0}^{x2} f = \frac{h}{3}(f_0 + 4f_1 + f_2) + O(h^5 f^{(4)}) \]
+		\begin{figure}
+			\includegraphics[scale=0.5]{./img/q_sim}
+		\end{figure} 
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Kwadratury Newtona-Cotes'a}
+		Dwie pozostałe kwadratury mają znaczenie czysto teoretyczne...
+		\\[1cm]
+		
+		Kwadratura Simpsona 3/8
+		\[ \int_{x0}^{x3} f = \frac{h}{8}(3f_0 + 9f_1 + 9f_2 + 3f_3) + O(h^5 f^{(4)}) \]
+		
+		Kwadratura Bode'a
+		\[ \int_{x0}^{x4} f = \frac{h}{45}(14f_0 + 64f_1 + 24f_2 + 64f_3 + 14f_4) + O(h^7 f^{(6)}) \]
+	\end{frame}	
+	
+	\section{Całki właściwe}
+	
+	\section{Całki niewłaściwe}
+	
+	\section{Całki wielowymiarowe}
 
 	\begin{frame}
 		\frametitle{Wstęp}
@@ -94,7 +210,7 @@ Politechnika Warszawska
 		\end{Huge}}
 		\only<2>{
 		\begin{Huge}
-			Dziękuję za uwagę
+			Dziękujemy za uwagę
 		\end{Huge}
 			}
 	\end{frame}
