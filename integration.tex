@@ -188,20 +188,124 @@ Politechnika Warszawska
 		\[ \int_{x0}^{x4} f = \frac{h}{45}(14f_0 + 64f_1 + 24f_2 + 64f_3 + 14f_4) + O(h^7 f^{(6)}) \]
 	\end{frame}	
 	
-	\section{Całki właściwe}
-	
-	\section{Całki niewłaściwe}
-	
-	\section{Całki wielowymiarowe}
-
 	\begin{frame}
-		\frametitle{Wstęp}
-		\only<1> { \includegraphics[scale=0.7]{./img/plain_world} }
-		\only<2> { \includegraphics[scale=0.7]{./img/scientist_world} }
+		\frametitle{Formuły ekstrapolacyjne} 
+		\begin{itemize}
+			\item
+				Poprzednio przedstawione formuły pozwalają nam dokonać
+				całkowania na dowolnym przedziale zamkniętym $[a, b]$
+			\item
+				Niestety nie każda funkcja podcałkowa jest zdefiniowana na 
+				całym przedziale np. funkcja $\frac{1}{x}$ nie jest zdefiniowana 
+				w punkcie $x = 0$, a zatem stosując poprzednie formuły nie możemy 
+				obliczyć $\int_0^1 \frac{1}{x} dx$
+			\item
+				Dalej założymy że funkcja nie jest definiowana w punkcie $ x_0 $,
+				natomiast jest definiowana w punktach $ x_1, \ldots, x_n $
+		\end{itemize}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Formuły ekstrapolacyjne} 
+		\begin{itemize}
+			\item
+				Wartość całki w przedziale $[x_0, x_1]$ postaramy się oszacować
+				za pomocą wartości funkcji w punktach $ x_1, \ldots, x_n $
+		\end{itemize}
+		
+		\[ \int_{x0}^{x1} f = h f_1 + O(h^2 f') \]
+		\[ \int_{x0}^{x1} f = \frac{h}{2} (3f_1 - f_2) + O(h^3 f'') \]
+		\[ \int_{x0}^{x1} f = \frac{h}{12} (23f_1 - 16f_2 + 5f_3) + O(h^4 f^{(3)}) \]
 	\end{frame}
+	
+\section{Kwadratury złożone}
+	
+	\begin{frame}
+		\frametitle{Kwadratura trapezów}
+		
+		\[ \int_{x_0}^{x_{N+1}} f = h \left[ \frac{1}{2}f_0 + f_1 + f_2 + \ldots
+		 + f_{N} + \frac{1}{2}f_{N+1} \right] + O(\frac{1}{N^2})\]
+		 
+		 \begin{figure}
+		 	\includegraphics[scale=0.2]{./img/q_trap2}
+		 	\caption{Poprzez wielokrotne zastosowanie prostej kwadratury trapezów do 
+		pod przedziałów $[x_i, x_{i+1}]$ otrzymujemy złożoną kwadraturę trapezów}
+		 \end{figure}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Kwadratura Simpsona}
+		
+		\[
+		\int_{x_0}^{x_{N+1}} f = h \left[ \frac{1}{3}f_0 + \frac{4}{3}f_1 + \frac{2}{3}f_2 +  \ldots +\frac{4}{3}f_N + \frac{1}{3}f_{N+1} \right]
+		 + O(\frac{1}{N^4})\]
+
+		 \begin{figure}
+		 	\includegraphics[scale=0.3]{./img/q_sim2}
+		 	\caption{Poprzez wielokrotne zastosowanie reguły Simpsona do 
+		pod przedziałów $[x_i, x_{i+1}]$ otrzymujemy rozszerzoną regułę Simpsona}
+		 \end{figure}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Złożone formuły otwarte}
+		
+		Otwarta formuła bazująca na kwadraturze trapezów
+		\[
+		\int_{x_0}^{x_{N+1}} f = h \left[ \frac{3}{2}f_1 + f_2 +  \ldots + f_{N-1} + \frac{3}{2}f_{N} \right]
+		 + O(\frac{1}{N^2})\]
+
+		Otwarta formuła bazująca na regule Simpsona
+		\begin{figure}
+			\includegraphics[scale=0.5]{./img/ex_sim}
+		\end{figure}
+	\end{frame}	
+	
+	\begin{frame}
+		\frametitle{Złożone formuły otwarte}
+		
+		Kwadratura prostokątów (kwadratura punktu środkowego)
+		\[
+		\int_{x_0}^{x_{N+1}} f = h \left[ f_\frac{1}{2} + f_\frac{3}{2} +  \ldots + f_\frac{N-2}{2} + f_\frac{N}{2} \right]
+		 + O(\frac{1}{N^2})\]
+
+		\begin{figure}
+			\includegraphics[scale=0.3]{./img/q_rect2}
+		\end{figure}
+	\end{frame}	
+	
+\section{Algorytmy}	
+% Algorytm przyrostowy na trapezy i roberga (koniecznie bo jest ciekawy)
+% Jak Ci się bedzie nudzilo to  mozesz Simpsona dodac
+	
+\section{Całki niewłaściwe}
+% Tylko teoria - tj. to przeksztalcenie z niewlasciwej na wlasciwa
+	
+\section{Całki wielowymiarowe}
+% Zamiana calki wielowymiarowej na iterowane + mozesz
+% cos dodac od siebie
+
+% Jesli chcesz zebym to ja cos dodal ewentulanie wyrzucil
+% to pisz email postaram sie odpowiedziec w przeciagu 1h
+% w Zasadzie jedyne co mozemy jeszcze dorzucic to MonteCarlo
+% ewentualnie prosty przyklad z kwadraturami gaussa
 
 \section{Zakończenie}
-
+	% Mały żart na koniec ???
+	\begin{frame}
+		\frametitle{THE END}
+		\includegraphics[scale=0.7]{./img/calculus}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{Bibliografia}
+		\begin{itemize}
+			\item Press, Teukolsky, Vetterling, Flannery
+			\textit{Numerical Recipes in C. The Art of Scientific Computing}
+			Wydanie drugie
+		\end{itemize}
+	\end{frame}	
+	
 	\begin{frame}
 		\frametitle{Zakończenie}
 		\only<1>{		
